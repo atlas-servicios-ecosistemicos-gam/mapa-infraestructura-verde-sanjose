@@ -37,11 +37,11 @@ sf_limite_sanjose_web <-
   st_transform(3857)
 
 # Capa raster de infraestructura verde (en Web Mercator)
-raster_infraestructura_verde <-
-  raster(url_raster_infraestructura_verde) %>%
-  aggregate(fact=c(2), fun=modal) %>% # ¡¡HAY QUE TRATAR DE ELIMINAR ESTA AGRUPACIÓN. PODRÍA FUNCIONAR AL USAR MÁS MEMORIA LINUX!!
-  crop(sf_limite_sanjose_web) %>%
-  mask(sf_limite_sanjose_web)
+# raster_infraestructura_verde <-
+#   raster(url_raster_infraestructura_verde) %>%
+#   aggregate(fact=c(2), fun=modal) %>% # ¡¡HAY QUE TRATAR DE ELIMINAR ESTA AGRUPACIÓN. PODRÍA FUNCIONAR AL USAR MÁS MEMORIA LINUX!!
+#   crop(sf_limite_sanjose_web) %>%
+#   mask(sf_limite_sanjose_web)
 
 #---------------- Paletas de colores ---------------
 
@@ -84,7 +84,7 @@ Row
 ```{r}
 
 leaflet() %>%
-  setView(-83.99, 9.94, 13) %>%
+  setView(-84.01, 9.94, 13) %>%
   addProviderTiles(providers$OpenStreetMap.Mapnik, group = "OpenStreetMap") %>%
   addProviderTiles(providers$Stamen.TonerLite, group = "Stamen Toner Lite") %>%
   addProviderTiles(providers$CartoDB.DarkMatter, group = "CartoDB Dark Matter") %>%
@@ -97,12 +97,12 @@ leaflet() %>%
     weight = 6.0,
     group = "Límite de San José"
   ) %>%
-  addRasterImage(
-    raster_infraestructura_verde,
-    colors = pal,
-    opacity = 1,
-    group = "Infraestructura verde"
-  ) %>%
+  # addRasterImage(
+  #   raster_infraestructura_verde,
+  #   colors = pal,
+  #   opacity = 1,
+  #   group = "Infraestructura verde"
+  # ) %>%
   addLegend(
     title = "Infraestructura verde", 
     position = "bottomright",
