@@ -1,5 +1,5 @@
 ---
-title: "Mapa de infraestructura verde en San José"
+title: "Mapa de infraestructura verde del cantón de San José"
 output: 
   flexdashboard::flex_dashboard:
     orientation: rows
@@ -80,7 +80,7 @@ pal <- colorFactor(
 Row
 -----------------------------------------------------------------------
 
-### Datos para descarga: [Capa de infraestructura verde en San José](https://raw.githubusercontent.com/atlas-servicios-ecosistemicos-gam/datos/master/infraestructura-verde/sanjose/IV_SAN_JOSE.TIF)
+### Datos para descarga: [Capa de infraestructura verde del cantón de San José](https://raw.githubusercontent.com/atlas-servicios-ecosistemicos-gam/datos/master/infraestructura-verde/sanjose/IV_SAN_JOSE.TIF)
 ```{r}
 
 leaflet() %>%
